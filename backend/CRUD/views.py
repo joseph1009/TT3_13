@@ -11,6 +11,7 @@ def home(request):
     return render (request,'CRUD/home.html',context)
 
 
+
 @login_required
 def createPost(request):
     form = messageForm()
