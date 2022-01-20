@@ -7,10 +7,6 @@ from .models import Message, User
 from .forms import messageForm
 
 
-
-
-
-
 @login_required(login_url='login')
 def createPost(request):
     form = messageForm()
