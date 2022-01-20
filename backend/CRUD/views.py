@@ -6,6 +6,11 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Message, User
 from .forms import messageForm
 
+def home(request):
+    context = {}
+    return render (request,'CRUD/home.html',context)
+
+
 @login_required
 def createPost(request):
     form = messageForm()
