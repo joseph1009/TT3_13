@@ -11,6 +11,8 @@ def editPost(request):
     context = {}
     return render(request,'filename.html',context)
 
-# def deletePost(request):
+def deletePost(request):
+    context = {}
+    return render(request, 'filenam.html',context) 
 
 
