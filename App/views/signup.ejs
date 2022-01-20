@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </head>
   <body>
-
     <div class="split left">
       <div style="margin-top:25%">
         <img src=/images/landingCouple.png class="rounded mx-auto d-block" alt='Landing'/>
@@ -18,21 +17,24 @@
     <div class="split right">
       <div style="margin-top:25%;">
       <div class="text-center">
-        <h1 style="color: white; margin-bottom:20px; font-size:58px">Join <span style="text-decoration: underline;">Post It!</span> Today.</h1> 
-        <div class="d-grid gap-2 col-5 mx-auto">
-        <a href="/signup">
-          <button type="button" class="btn btn-light"><a href="/signup" style="text-decoration: none; color:black;">Sign up with email</a></button>
-        </a> 
-        </div>
-      </div>
-      <div class="text-center" style="margin-top: 100px;">
-        <h3 style="color: white; margin-bottom:20px;">Already have an account?</h3>
-        <div class="d-grid gap-2 col-5 mx-auto">
-        <button type="button" class="btn btn-dark"><i class="icon-user icon-white"></i>Sign in</button>
-        </div>
+        <h1 style="color: white; margin-bottom:35px; font-size:58px">Sign up for an account.</h1> 
+        <form style="margin-left:25%; margin-right:25%;">
+            <div class="mb-3">
+                <input type="name" class="form-control" id="exampleInputName1" placeholder="Name">
+              </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button style="margin-top: 25px;" type="submit" class="btn btn-success">Submit</button>
+          </form>
+     
       </div>
     </div>
     </div>
+ 
 
   </body>
 </html>
