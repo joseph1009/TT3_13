@@ -2,8 +2,8 @@ from django.db import models
 
 from users.models import Profile
 
-class Message(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+#class Message(models.Model):
+#   user = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
 # from django.contrib.auth.models import AbstractUser
 # from django.contrib.auth.models import User
