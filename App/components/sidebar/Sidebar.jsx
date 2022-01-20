@@ -11,11 +11,9 @@ export default function Sidebar() {
             <div className="sidebarWrapper">
                 <ul className="sidebarList">
                     <li className="sidebarListItem">
-                    <span className="sidebarListItemText">Home</span>
-                    </li>
-                    <li className="sidebarListItem">
-                        <span className="sidebarListItemText">Profile</span>
-                    </li>
+                    <Home className="sidebarIcon" />
+                    <span className="sidebarListItemText">Feed</span>
+                   </li>
                 </ul>
             </div>
         </div>

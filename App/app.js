@@ -6,8 +6,27 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var signupRouter = require('./routes/signup');
+var profileRouter = require('./routes/profile');
+
 
 var app = express();
+app.get('/signup', function(req, res)   {
+res.render('signup', { title: 'Sign up' });
+});
+
+app.get('/login', function(req, res)   {
+  res.render('login', { title: 'Log in' });
+});
+
+
+
+
+
+app.get('/profile', function(req, res) {
+  res.render('profile', { title: 'Profile' });
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +40,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/signup', signupRouter);
+app.use('/profile', profileRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,5 +59,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

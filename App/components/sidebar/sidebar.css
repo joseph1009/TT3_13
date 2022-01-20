@@ -19,8 +19,7 @@
 .sidebarListItem {
     display: flex;
     align-items: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 
 .sidebarIcon {
