@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var signupRouter = require('./routes/signup');
+var profileRouter = require('./routes/profile');
 
 
 var app = express();
@@ -14,6 +15,13 @@ app.get('/signup', function(req, res)   {
 res.render('signup', { title: 'Sign up' });
 });
 
+
+
+
+
+app.get('/profile', function(req, res) {
+  res.render('profile', { title: 'Profile' });
+  });
 
 
 // view engine setup
