@@ -6,8 +6,13 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Message, User
 from .forms import messageForm
 
+def home(request):
+    context = {}
+    return render (request,'CRUD/home.html',context)
 
-@login_required(login_url='login')
+
+
+@login_required
 def createPost(request):
     form = messageForm()
     post = Message.objects.all()
@@ -17,10 +22,10 @@ def createPost(request):
         return redirect('home')
 
     context = {'form': form, 'post': post}
-    # return render(request, 'base/room_form.html', context)
+    return render(request,'CRUD/post.html' , context)
 
 
-@login_required(login_url='login')
+@login_required
 def updatePost(request):
     user= User.objects.get(name=request.user)
     form = messageForm()
@@ -36,32 +41,18 @@ def updatePost(request):
         return redirect('home')
 
     context = {'form': form, 'post': post}
-    # return render(request,'file' , context)
+    return render(request,'CRUD/post.html' , context)
 
 
-@login_required(login_url='login')
+@login_required
 def deletePost(request):
     post= Message.objects.get('body')
 
-    
-def search(request): #search
-    template='CRUD/home.html'
-
-    query=request.GET.get('q')
-
-    result=Post.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query))
-    paginate_by=2
-    context={ 'posts':result }
-    return render(request,template,context)
-
-# def deletePost(request):
-def deletePost(request):
-    context = {}
-    return render(request, 'filenam.html',context) 
-
+    if request.user != post.user:
+        return HttpResponse('Your are not allowed here!!')
 
     if request.method == 'POST':
         post.delete()
         return redirect('home')
-    # return render(request, 'file_name', {})
+    return render(request, 'CRUD/delete.html', {'obj': post})
 

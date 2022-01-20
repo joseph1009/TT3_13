@@ -1,6 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import User
+
+from backend.users.models import Profile
+
+class Message(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+# from django.contrib.auth.models import AbstractUser
+# from django.contrib.auth.models import User
 
 
 
@@ -17,7 +23,7 @@ from django.contrib.auth.models import User
 
 
 class Message(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     body = models.TextField()
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -27,3 +33,4 @@ class Message(models.Model):
 
     def __str__(self):
         return self.body[0:50]
+
