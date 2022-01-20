@@ -47,8 +47,22 @@ def updatePost(request):
 def deletePost(request):
     post= Message.objects.get('body')
 
-    if request.user != post.user:
-        return HttpResponse('Your are not allowed here!!')
+    
+def search(request): #search
+    template='CRUD/home.html'
+
+    query=request.GET.get('q')
+
+    result=Post.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query))
+    paginate_by=2
+    context={ 'posts':result }
+    return render(request,template,context)
+
+# def deletePost(request):
+def deletePost(request):
+    context = {}
+    return render(request, 'filenam.html',context) 
+
 
     if request.method == 'POST':
         post.delete()
