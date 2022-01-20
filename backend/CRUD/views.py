@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from .models import Message, User
+from .models import Message
 from .forms import messageForm
 
 def home(request):
@@ -56,3 +56,12 @@ def deletePost(request):
         return redirect('home')
     return render(request, 'CRUD/delete.html', {'obj': post})
 
+def search(request):
+    template='blog/home.html'
+
+    query=request.GET.get('q')
+
+    result=Post.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query))
+    paginate_by=2
+    context={ 'posts':result }
+    return render(request,template,context)

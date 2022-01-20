@@ -1,6 +1,6 @@
 from django.db import models
 
-from backend.users.models import Profile
+from users.models import Profile
 
 class Message(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
