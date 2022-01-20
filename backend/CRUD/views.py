@@ -11,7 +11,7 @@ def editPost(request):
     context = {}
     return render(request,'filename.html',context)
 
-def search(request):
+def search(request): #search
     template='CRUD/home.html'
 
     query=request.GET.get('q')
@@ -22,5 +22,8 @@ def search(request):
     return render(request,template,context)
 
 # def deletePost(request):
+def deletePost(request):
+    context = {}
+    return render(request, 'filenam.html',context) 
 
 
