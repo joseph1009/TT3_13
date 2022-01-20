@@ -19,6 +19,10 @@ app.get('/login', function(req, res)   {
   res.render('login', { title: 'Log in' });
 });
 
+app.get('/profile', function(req, res)   {
+  res.render('profile', { title: 'Home' });
+});
+
 
 
 

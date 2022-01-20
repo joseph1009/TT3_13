@@ -1,21 +1,10 @@
-// import React from 'react';
-
-// const profile = () => {
-//   return 
-//   (<div className= 'container'>
-//       <div className='overlap'/>
-// </div>);
-// };
-
-// export default profile;
 
 var express = require('express');
 var router = express.Router();
 
-
-/* GET users listing. */
+/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('profile', { title: 'profile' });
-});
+  res.render('profile', { title: 'Sign up' });
+
 
 module.exports = router;
